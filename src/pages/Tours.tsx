@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight, MapPin, Clock, Star } from "lucide-react";
+import { ArrowRight, MapPin, Clock, CalendarDays } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const tours = [
@@ -7,58 +7,61 @@ const tours = [
     id: 1,
     title: "The Cultural Triangle",
     duration: "4 Days / 3 Nights",
+    category: "Heritage & History",
     location: "Sigiriya, Dambulla, Polonnaruwa",
-    price: "$450",
-    rating: "4.9",
+    excerpt: "Journey through the ancient heart of Sri Lanka. Explore the majestic lion rock fortress of Sigiriya, marvel at the cave temples of Dambulla, and cycle through the timeless ruins of Polonnaruwa. A deep dive into millennia of history and breathtaking architecture.",
+    itinerary: [
+      "Day 1: Arrival in Colombo & Transfer to Dambulla. Evening cave temple visit.",
+      "Day 2: Early morning climb of Sigiriya Rock Fortress. Afternoon village safari.",
+      "Day 3: Day trip to the ancient medieval capital of Polonnaruwa.",
+      "Day 4: Proceed to Kandy for the Temple of the Tooth, then departure."
+    ],
     image: "https://images.unsplash.com/photo-1624806992066-5fffe7ca9272?q=80&w=2070",
-    featured: true
   },
   {
     id: 2,
     title: "Tea Country Express",
     duration: "3 Days / 2 Nights",
+    category: "Nature & Landscapes",
     location: "Nuwara Eliya, Ella",
-    price: "$320",
-    rating: "4.8",
+    excerpt: "Wind your way up into the cool, misty mountains of Sri Lanka. Ride the famous scenic train, wander through lush green tea plantations, and witness the dramatic views from Ella Rock and World's End.",
+    itinerary: [
+      "Day 1: Scenic train ride from Kandy to Nanu Oya. Explore Nuwara Eliya.",
+      "Day 2: Visit a working tea estate and factory. Train to Ella in the afternoon.",
+      "Day 3: Hike Little Adam's Peak & visit the Nine Arch Bridge before departure."
+    ],
     image: "https://images.unsplash.com/photo-1625736300986-6e5a6bfdfca2?q=80&w=2070",
-    featured: false
   },
   {
     id: 3,
     title: "Wild Safari Adventure",
     duration: "2 Days / 1 Night",
+    category: "Wildlife",
     location: "Yala National Park",
-    price: "$280",
-    rating: "5.0",
+    excerpt: "Experience the thrill of the wild on the southeastern coast. Known for having one of the highest leopard densities in the world, Yala offers an unforgettable safari experience alongside elephants, sloth bears, and crocodiles.",
+    itinerary: [
+      "Day 1: Arrive at Yala eco-lodge. Afternoon 4x4 game drive.",
+      "Day 2: Early morning safari at dawn. Breakfast in the bush, followed by departure."
+    ],
     image: "https://images.unsplash.com/photo-1618337207604-9844e1eed1df?q=80&w=2070",
-    featured: false
   },
   {
     id: 4,
     title: "Coastal Bliss Escape",
     duration: "5 Days / 4 Nights",
+    category: "Relaxation",
     location: "Mirissa, Galle, Unawatuna",
-    price: "$550",
-    rating: "4.7",
+    excerpt: "Unwind on the golden, palm-fringed beaches of the southern coast. Surf, swim, go whale watching, and wander the cobblestone streets of the historic Dutch Fort in Galle. The perfect tropical getaway.",
+    itinerary: [
+      "Day 1: Transfer to Mirissa. Relax on the pristine sandy beaches.",
+      "Day 2: Early morning whale and dolphin watching cruise.",
+      "Day 3: Travel to Unawatuna. Visit the secret beach and swing from palm trees.",
+      "Day 4: Day trip exploring the colonial architecture of Galle Fort.",
+      "Day 5: Final beach morning and transfer to airport."
+    ],
     image: "https://images.unsplash.com/photo-1583002621063-e3814402eb0e?q=80&w=2070",
-    featured: false
   }
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
-};
 
 export function Tours() {
   return (
@@ -66,86 +69,114 @@ export function Tours() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#0a0a0a] pt-32 pb-24 px-6 md:px-12 lg:px-24"
+      className="bg-white min-h-screen text-neutral-900 font-sans"
     >
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-1 bg-[#48E5C2]" />
-            <h2 className="text-[#48E5C2] uppercase tracking-widest text-sm font-semibold">Our Destinations</h2>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">Discover the extraordinary.</h1>
-          <p className="text-white/60 max-w-2xl text-lg">
-            From misty mountains to ancient ruins and golden shores, embark on carefully curated journeys that capture the heart of Sri Lanka.
-          </p>
-        </motion.div>
+      {/* Editorial Hero Area */}
+      <section className="relative h-[60vh] w-full bg-neutral-900 flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-60"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1621228965682-1dd77884d509?q=80&w=2070)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-white" />
+        
+        <div className="relative z-10 text-center px-6 mt-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="uppercase tracking-[0.2em] text-white/80 text-sm font-semibold mb-4 block"
+          >
+            Travel Journal
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight"
+          >
+            Curated Experiences
+          </motion.h1>
+        </div>
+      </section>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+      {/* Main Content Area */}
+      <section className="max-w-4xl mx-auto px-6 py-20">
+        <div className="mb-16 border-b border-neutral-200 pb-8">
+          <p className="text-xl md:text-2xl font-light leading-relaxed text-neutral-600">
+            We don't just sell tours; we craft stories. Explore our collection of thoughtfully designed itineraries that bring the authentic spirit, culture, and nature of Sri Lanka directly to you.
+          </p>
+        </div>
+
+        <div className="space-y-24">
           {tours.map((tour, index) => (
-            <motion.div 
-              key={tour.id} 
-              variants={itemVariants}
-              className={`group relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 shadow-xl flex flex-col ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+            <motion.article 
+              key={tour.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="group"
             >
-              <div className="relative h-72 md:h-80 overflow-hidden">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${tour.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                
-                {tour.featured && (
-                  <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider">
-                    Most Popular
-                  </div>
-                )}
-                
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="flex items-center gap-2 mb-2 text-white/80 text-sm">
-                    <MapPin size={14} />
-                    <span>{tour.location}</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-bold">{tour.title}</h3>
+              {/* Tour Header Category & Title */}
+              <header className="mb-8">
+                <div className="flex items-center gap-4 mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                  <span>{tour.category}</span>
+                  <span className="w-1 h-1 bg-neutral-300 rounded-full" />
+                  <span className="flex items-center gap-1.5"><Clock size={14} /> {tour.duration}</span>
                 </div>
+                <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-neutral-900 mb-4">
+                  {tour.title}
+                </h2>
+                <div className="flex items-center gap-2 text-neutral-500 text-sm font-medium">
+                  <MapPin size={16} />
+                  <span>{tour.location}</span>
+                </div>
+              </header>
+
+              {/* Large Editorial Image */}
+              <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden mb-8">
+                <img 
+                  src={tour.image} 
+                  alt={tour.title}
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                />
               </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-2 text-white/50 text-sm">
-                    <Clock size={16} />
-                    <span>{tour.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-[#48E5C2] font-medium">
-                    <Star size={16} fill="currentColor" />
-                    <span>{tour.rating}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                  <div>
-                    <span className="text-white/50 text-xs uppercase tracking-wider block mb-1">Starting from</span>
-                    <span className="text-white text-xl font-bold">{tour.price}</span>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                {/* Excerpt */}
+                <div className="md:col-span-5">
+                  <p className="text-lg text-neutral-600 leading-relaxed">
+                    {tour.excerpt}
+                  </p>
                   
-                  <Link to="/contact" className="w-12 h-12 rounded-full bg-white/5 hover:bg-[#48E5C2] flex items-center justify-center text-white hover:text-black transition-colors duration-300">
-                    <ArrowRight size={20} />
+                  <Link 
+                    to="/contact" 
+                    className="inline-flex items-center gap-2 mt-8 text-sm font-bold uppercase tracking-wider text-neutral-900 border-b-2 border-neutral-900 pb-1 hover:text-neutral-500 hover:border-neutral-500 transition-colors"
+                  >
+                    Inquire about this trip <ArrowRight size={16} />
                   </Link>
                 </div>
+
+                {/* Itinerary */}
+                <div className="md:col-span-7 bg-neutral-50 p-8">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-900 mb-6 flex items-center gap-2">
+                    <CalendarDays size={16} /> Itinerary Highlights
+                  </h3>
+                  <ul className="space-y-4">
+                    {tour.itinerary.map((day, i) => (
+                      <li key={i} className="flex gap-4 text-neutral-700 items-start">
+                        <span className="font-medium text-neutral-400 select-none">
+                          {(i + 1).toString().padStart(2, '0')}
+                        </span>
+                        <span className="text-sm leading-relaxed">{day}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </section>
     </motion.div>
   );
 }
