@@ -25,37 +25,40 @@ export function Contact() {
             Ready to experience the wonders of Sri Lanka? Let our travel experts craft the perfect itinerary for your unforgettable adventure.
           </p>
 
-          <div className="space-y-10">
-            <div className="flex items-start gap-5">
-              <div className="w-12 h-12 flex items-center justify-center text-neutral-800 shrink-0 border border-neutral-200 rounded-full">
-                <MapPin size={20} strokeWidth={1.5} />
+            <div className="space-y-10">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 flex items-center justify-center text-neutral-800 shrink-0 border border-neutral-200 rounded-full">
+                  <MapPin size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-neutral-900 font-semibold mb-1">Sri Lanka Office</h4>
+                  <p className="text-neutral-500 text-sm leading-relaxed mb-4">No. 114/A, Attanayake Mawatha<br/>Nugegoda, Sri Lanka</p>
+                  
+                  <h4 className="text-neutral-900 font-semibold mb-1">Australia Office</h4>
+                  <p className="text-neutral-500 text-sm leading-relaxed">No: 1/77, Waverley Road<br/>Chadstone, VIC 3148, Australia</p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-neutral-900 font-semibold mb-1">Our Office</h4>
-                <p className="text-neutral-500 text-sm leading-relaxed">45 Galle Road, Colombo 03<br/>Sri Lanka</p>
-              </div>
-            </div>
 
-            <div className="flex items-start gap-5">
-              <div className="w-12 h-12 flex items-center justify-center text-neutral-800 shrink-0 border border-neutral-200 rounded-full">
-                <Mail size={20} strokeWidth={1.5} />
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 flex items-center justify-center text-neutral-800 shrink-0 border border-neutral-200 rounded-full">
+                  <Mail size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-neutral-900 font-semibold mb-1">Email Us</h4>
+                  <p className="text-neutral-500 text-sm leading-relaxed">info@uct.com.au</p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-neutral-900 font-semibold mb-1">Email Us</h4>
-                <p className="text-neutral-500 text-sm leading-relaxed">hello@ucttours.lk<br/>bookings@ucttours.lk</p>
-              </div>
-            </div>
 
-            <div className="flex items-start gap-5">
-              <div className="w-12 h-12 flex items-center justify-center text-neutral-800 shrink-0 border border-neutral-200 rounded-full">
-                <Phone size={20} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h4 className="text-neutral-900 font-semibold mb-1">Call Us</h4>
-                <p className="text-neutral-500 text-sm leading-relaxed">+94 11 234 5678<br/>+94 77 123 4567</p>
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 flex items-center justify-center text-neutral-800 shrink-0 border border-neutral-200 rounded-full">
+                  <Phone size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-neutral-900 font-semibold mb-1">Call & WhatsApp</h4>
+                  <p className="text-neutral-500 text-sm leading-relaxed">Sri Lanka: +94 77 864 8652<br/>Australia: +61 41 244 5588</p>
+                </div>
               </div>
             </div>
-          </div>
         </motion.div>
 
         {/* Right Side: Form */}
@@ -124,6 +127,36 @@ export function Contact() {
           </form>
         </motion.div>
       </div>
+
+      {/* FAQs Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="max-w-4xl mx-auto mt-32"
+      >
+        <div className="text-center mb-12">
+          <span className="uppercase tracking-[0.2em] text-neutral-500 text-sm font-semibold mb-4 block">FAQs</span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-neutral-900 tracking-tight">Got Questions?</h2>
+        </div>
+
+        <div className="space-y-6">
+          {[
+            { q: "Do I need a tourist visa for Sri Lanka?", a: "Yes, most travelers need an ETA (Electronic Travel Authorization) before arriving in Sri Lanka. It can be easily applied for online." },
+            { q: "What travel documents are essential?", a: "You need a passport valid for at least 6 months, a return ticket, your ETA approval, and proof of sufficient funds." },
+            { q: "What is the best time to visit?", a: "Sri Lanka is a year-round destination! The west and south coasts are best from December to March, while the east coast shines from April to September." },
+            { q: "Can I customize the tour?", a: "Absolutely! We specialize in private customized tours carefully crafted to meet your interests, schedule, and budget." },
+            { q: "What is the refund and cancellation policy?", a: "Cancellations made 30 days prior to arrival typically receive a full refund (minus administrative fees). Specific policies depend on the booked hotels and services." },
+            { q: "ATM availability and currency?", a: "ATMs are widely available in cities and towns. The local currency is the Sri Lankan Rupee (LKR). Australian Dollars, USD, and Euros are also easy to exchange." }
+          ].map((faq, i) => (
+            <div key={i} className="bg-neutral-50 border border-neutral-200 p-6 md:p-8">
+              <h3 className="text-lg font-bold text-neutral-900 mb-3">{faq.q}</h3>
+              <p className="text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
