@@ -44,11 +44,11 @@ export function Home() {
             <span className="text-6xl md:text-9xl font-semibold tracking-tight drop-shadow-xl uppercase">ceylon</span>
           </div>
 
-          <Link to="/tours" className="group flex items-center gap-4 bg-white/70 backdrop-blur-md rounded-full pl-6 pr-1.5 py-1.5 hover:bg-white transition-colors duration-300 shadow-[0_0_40px_rgba(72,229,194,0.3)]">
-            <span className="text-black font-semibold tracking-wide text-sm md:text-base">Tap to Explore</span>
-            <div className="bg-[#48E5C2] rounded-full w-10 h-10 flex items-center justify-center text-black group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
-              <ArrowRight size={20} strokeWidth={2.5} className="absolute transition-transform duration-300 group-hover:translate-x-[150%]" />
-              <ArrowRight size={20} strokeWidth={2.5} className="absolute -translate-x-[150%] transition-transform duration-300 group-hover:translate-x-0" />
+          <Link to="/tours" className="group flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full pl-6 pr-1.5 py-1.5 hover:bg-white/20 transition-all duration-300">
+            <span className="text-white font-medium tracking-widest text-sm md:text-base uppercase">Tap to Explore</span>
+            <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center text-black group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+              <ArrowRight size={20} className="absolute transition-transform duration-300 group-hover:translate-x-[150%]" />
+              <ArrowRight size={20} className="absolute -translate-x-[150%] transition-transform duration-300 group-hover:translate-x-0" />
             </div>
           </Link>
 
