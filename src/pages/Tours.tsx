@@ -16,7 +16,7 @@ const tours = [
       "Day 3: Day trip to the ancient medieval capital of Polonnaruwa.",
       "Day 4: Proceed to Kandy for the Temple of the Tooth, then departure."
     ],
-    image: "https://images.unsplash.com/photo-1624806992066-5fffe7ca9272?q=80&w=2070",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/1920px-Sigiriya_%28141688197%29.jpeg",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const tours = [
       "Day 2: Visit a working tea estate and factory. Train to Ella in the afternoon.",
       "Day 3: Hike Little Adam's Peak & visit the Nine Arch Bridge before departure."
     ],
-    image: "https://images.unsplash.com/photo-1625736300986-6e5a6bfdfca2?q=80&w=2070",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Tea_plantation_Haputale.jpg/1920px-Tea_plantation_Haputale.jpg",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const tours = [
       "Day 1: Arrive at Yala eco-lodge. Afternoon 4x4 game drive.",
       "Day 2: Early morning safari at dawn. Breakfast in the bush, followed by departure."
     ],
-    image: "https://images.unsplash.com/photo-1618337207604-9844e1eed1df?q=80&w=2070",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa",
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ const tours = [
       "Day 4: Day trip exploring the colonial architecture of Galle Fort.",
       "Day 5: Final beach morning and transfer to airport."
     ],
-    image: "https://images.unsplash.com/photo-1583002621063-e3814402eb0e?q=80&w=2070",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
   }
 ];
 
@@ -75,7 +75,7 @@ export function Tours() {
       <section className="relative h-[60vh] w-full bg-neutral-900 flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1621228965682-1dd77884d509?q=80&w=2070)' }}
+          style={{ backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/The_Nine_Arches_Bridge.jpg/1920px-The_Nine_Arches_Bridge.jpg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-white" />
         
